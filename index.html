@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&family=Funnel+Display:wght@300..800&family=Roboto+Mono:ital,wght@0,100..700;1,100..700family=Share+Tech&display=swap" rel="stylesheet">
+    <!-- Font Awesome v6 CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>KAIRO Landing Page</title>
+    <style>
+        .rotate-x-75 {
+            transform: perspective(600px) rotateX(75deg) translateX(-50%);
+        }
+
+        .font-poppins {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .mockup-transform {
+            transform: perspective(600px) rotateX(50deg) rotateY(-15deg) rotateZ(20deg);
+            transform-origin: bottom right;
+            opacity: 0.4;
+        }
+        
+        #stand-for {
+            transform: perspective(800px) rotateX(50deg) rotateY(0deg);
+        }
+
+        .mockup-transform:hover {
+            transition: transform 0.5s ease-in-out;
+            opacity: 0.9;
+            z-index: 50;
+            translate: 10px;
+        }
+        
+        @keyframes marquee {
+            0% { transform: translateX(100); }
+            100% { transform: translateX(-100%); }
+        }
+        @keyframes reverse-marquee {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        .animate-marquee {
+            display: inline-block;
+            padding-left: 100%;
+            animation: marquee 9s linear infinite;
+            filter: grayscale(0.5) drop-shadow(0 0 2px #fff);
+            
+        }
+        
+        .animate-reverse-marquee {
+            display: inline-block;
+            padding-right: 100%;
+            animation: reverse-marquee 12s linear infinite;
+            filter: grayscale(0.5) drop-shadow(0 0 2px #fff);
+        }
+        
+        .animate-marquee:hover {
+            filter: grayscale(0);
+        }
+        
+        .animate-reverse-marquee:hover {
+            filter: grayscale(0);
+        }
+        
+    </style>
+    <script type="module" src="/logic/index.js"></script>
+</head>
+<body class="text-black bg-white ">    
+    <!-- Hero Image -->
+    <section class="relative min-h-screen px-2 pt-2 pb-16 bg-white md:px-7 md:pb-12 lg:px-12 text-slate-200 bg-gradient-to-br from-gray-600 via-gray-800 to-slate-700 font-poppins">
+        <!-- Navbar -->
+        <nav class="px-6 py-4 text-white md:rounded-full rounded-2xl bg-gray-700/60 lg:px-20">
+            <div class="flex items-center justify-between text-blue-500 rounded-full lg:px-20 md:px-2">
+                <h1 class="font-serif text-lg font-bold text-transparent bg-gradient-to-r from-emerald-600 to-sky-400 bg-clip-text">KAIRO</h1>
+                <!-- Hamburger Button (Mobile Only) -->
+                <button id="menu-toggle" class="md:hidden focus:outline-none">
+                    <svg class="w-6 h-6 text-emerald-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            
+                <!-- Menu Item (Desktop dan Tablet) -->
+                <div class="justify-around hidden text-white md:flex font-semi bold lg:gap-20 md:gap-12">
+                    <a href="../index.html" class="hover:font-bold hover:scale-110 hover:text-emerald-400 hover:-translate-y-1">Beranda</a>
+                    <a href="/view/update.html" class="hover:font-bold hover:scale-110 hover:text-emerald-400 hover:-translate-y-1">Update</a>
+                    <a href="/view/products.html" class="hover:font-bold hover:scale-110 hover:text-emerald-400 hover:-translate-y-1">Produk AI</a>
+                    <a href="/view/contact.html" class="hover:font-bold hover:scale-110 hover:text-emerald-400 hover:-translate-y-1">Kontak</a>
+                </div>
+                <a href="/view/products.html" class="hidden p-3 text-sm font-semibold rounded-full md:block text-slate-200 bg-gradient-to-r from-sky-600 to-emerald-700">Langganan</a>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden mt-4 space-y-3 font-semibold lg:hidden">
+                <a href="../index.html" class="block hover:text-emerald-400">Beranda</a>
+                <a href="/view/update.html" class="block hover:text-emerald-400">Update</a>
+                <a href="/view/products.html" class="block hover:text-emerald-400">Produck AI</a>
+                <a href="/view/contact.html" class="block hover:text-emerald-400">Kontak</a>
+                <a href="/view/products.html" class="p-3 text-sm font-semibold rounded-full text-slate-200 bg-gradient-to-r from-sky-600 to-emerald-700">Langganan</a>
+            </div>
+        </nav>
+
+        <div class="container mx-auto text-center mt-36 md:mt-40 lg:mt-20">
+            <h1 class="relative z-10 mb-2 text-6xl font-bold text-transparent bg-gradient-to-r from-emerald-600 to-sky-400 bg-clip-text">K.A.I.R.O</h1>
+            <p id="stand-for" class="text-2xl font-bold text-transparent md:text-3xl drop-shadow-lg bg-gradient-to-r from-emerald-700 to-sky-400 bg-clip-text">Knowledge of Artificial Intelligence Resources</p>
+            <p class="w-3/4 mx-auto mb-6 text-xs md:w-full md:text-lg text-slate-200">Kenali dan Manfaatkan berbagai macam Teknologi AI masa kini</p>
+            <a href="/view/products.html" class="inline-block px-10 py-2 font-semibold text-white transition duration-300 bg-sky-800 lg:text-lg md:text-xl rounded-3xl hover:bg-gradient-to-r from-emerald-700 to-sky-400">Telusuri</a>
+        </div>
+
+        <div class="block">
+            <img src="img/chatgpt.png" alt="Chatgpt Image"
+            class="absolute inline-block w-14 h-14 md:w-32 md:h-32 top-32 left-1/5 hover:opacity-100 opacity-65 animate-bounce
+                drop-shadow-[0_0_15px_#10b981]">
+            <!-- DeepSeek (biru tua) -->
+            <img src="img/deepseek.png" alt="Deepseek Image"
+                class="absolute inline-block w-14 h-14 top-36 left-40 md:h-28 md:w-28 lg:top-1/4 md:top-[28%] lg:left-20 md:left-4 animate-bounce hover:opacity-100 opacity-65
+                    drop-shadow-[0_0_15px_#2563eb]">
+
+            <!-- Gemini (biru neon cerah) -->
+            <img src="img/gemini.png" alt="Gemini Image"
+                class="absolute inline-block w-14 h-14 bottom-74 left-40 md:w-32 md:h-32 lg:top-[40%] md:top-[42%] left-1/5 animate-bounce hover:opacity-100 opacity-65
+                    drop-shadow-[0_0_15px_#38bdf8]">
+
+            <!-- Claude (ungu kebiruan) -->
+            <img src="img/claude.png" alt="Claude Image"
+                class="absolute inline-block w-14 h-14 md:w-24 md:h-24 top-32 right-1/5 animate-bounce hover:opacity-100 opacity-65
+                    drop-shadow-[0_0_15px_#f97316]">
+
+            <!-- Perplexity (biru muda terang) -->
+            <img src="img/perplexity.png" alt="Perplexity Image"
+                class="absolute inline-block w-14 h-14 md:w-32 md:h-32 lg:top-1/4 md:top-[28%] lg:right-20 md:right-2 animate-bounce hover:opacity-100 opacity-65
+                    drop-shadow-[0_0_15px_#ffffff]">
+
+            <!-- Consensus (orange kemerahan) -->
+            <img src="img/consensus.png" alt="Consensus Image"
+                class="absolute inline-block w-12 h-12 top-[55%] left-3/4 md:w-24 md:h-24 lg:top-[41%] md:top-[43%] right-1/5 animate-bounce hover:opacity-100 opacity-65
+                    drop-shadow-[0_0_15px_#38bdf8]">
+        </div> 
+
+        <!-- AI card -->
+        <div id="card-container" class="grid grid-cols-2 gap-3 mt-24 text-white md:p-5 lg:gap-4 lg:grid-cols-4 md:gap-6 rounded-2xl">
+        </div>
+    </section>
+
+    <!-- Description Section -->
+    <section class="relative px-10 pt-16 text-white py-28 md:py-40 lg:min-h-screen lg:items-center lg:flex bg-gradient-to-br from-sky-950 via-gray-800 to-blue-950 font-poppins">
+        <img
+            src="img/desc-image-2.jpg"
+            alt="AI Chip"
+            class="absolute z-40 hidden shadow-lg lg:w-1/2 md:w-1/3 lg:bottom-75 md:bottom-80 shadow-blue-200 lg:right-40 md:right-28 rounded-3xl mockup-transform md:block"
+        />
+        <img
+            src="img/desc-image-4.jpg"
+            alt="AI Chip"
+            class="absolute z-30 w-[55%] shadow-lg right-10 lg:w-1/2 md:w-1/3 bottom-12 opacity-80 shadow-blue-300 lg:bottom-60 md:bottom-65 lg:right-40 md:right-28 rounded-3xl mockup-transform"
+        />
+        <img
+            src="img/desc-image-3.jpg"
+            alt="AI Chip"
+            class="absolute z-20 w-[55%] shadow-lg right-10 lg:w-1/2 md:w-1/3 bottom-6 shadow-blue-400 opacity-80 lg:bottom-45 md:bottom-50 lg:right-40 md:right-28 rounded-3xl mockup-transform"
+        />
+        <img
+            src="img/desc-image.jpg"
+            alt="AI Chip"
+            class="absolute bottom-0 right-10 z-10 w-[55%] shadow-lg lg:w-1/2 md:w-1/3 opacity-80 lg:bottom-30 md:bottom-35 lg:right-40 md:right-28 rounded-3xl mockup-transform shadow-blue-500"
+        />
+
+            
+        <!-- Teks -->
+        <div class="md:w-1/2">
+            <h1 class="z-10 mb-4 text-2xl font-bold text-center text-transparent lg:text-6xl md:text-4xl bg-gradient-to-r from-emerald-600 to-sky-400 bg-clip-text">Kecerdasan Buatan</h1>
+            <p class="text-[0.8rem] text-justify md:leading-relaxed lg:text-lg">
+                Kecerdasan Buatan (AI) adalah teknologi yang memungkinkan sistem komputer untuk meniru kemampuan manusia seperti belajar, bernalar, dan mengambil keputusan. AI bekerja dengan menganalisis data masif, mengenali pola, dan menyempurnakan performanya secara mandiri seiring waktu. Contoh penerapan AI mencakup asisten virtual (seperti DeepSeek Chat dan ChatGPT), sistem rekomendasi (Netflix/Spotify), kendaraan otonom, hingga diagnosa medis berbantuan komputer. Meski mampu menyelesaikan tugas kompleks, AI tetap merupakan alat tanpa kesadaran yang bergantung pada data dan algoritma. Perkembangan pesat AI kini telah mengubah berbagai sektor, mulai dari bisnis, pendidikan, hingga layanan kesehatan.
+            </p>
+        </div>
+    </section>
+
+    <!-- AI Component Section -->
+    <section class="relative min-h-screen px-2 pt-10 text-white lg:px-20 pb-46 bg-gradient-to-br from-blue-950 via-gray-800 to-sky-950 font-poppins">
+        <div class="px-4 max-w-7xl sm:px-6 lg:px-8">
+            <!-- AI component card -->
+            <h2 class="mb-4 text-2xl font-bold text-white md:text-3xl sm:text-4xl">
+                Apa saja Teknologi Dibalik <span class="z-10 mb-4 text-4xl font-bold text-center text-transparent md:text-6xl bg-gradient-to-r from-emerald-600 to-sky-400 bg-clip-text">Artificial Intelligence</span>?
+            </h2>
+            <p class="mb-12 text-sm text-slate-300 lg:w-3/4">
+                <span class="font-semibold text-emerald-500">Artificial Intelligence</span> memiliki komponen pembentuk yang berperan dalam fungsinya masing-masing sehingga menghasilkan beragam <span class="italic font-semibold text-emerald-500">tools</span> yang memudahkan kita saat ini.
+            </p>
+        </div>
+        <div id="ai-components-container" class="grid justify-center gap-3 text-white md:grid-cols-2 lg:gap-6 lg:grid-cols-3"></div>
+
+    </section>
+
+    <!-- Infinite Scroll -->
+    <section class="relative px-2 py-20 pt-10 md:text-white lg:px-20 pb-46 bg-gradient-to-br from-blue-950 via-gray-800 to-sky-950 font-poppins">
+        <h2 class="mb-4 ml-4 text-2xl font-bold text-slate-200">Aplikasi yang mengimplementasikan <span class="font-bold text-transparent md:text-4xl bg-gradient-to-r from-emerald-600 to-sky-400 bg-clip-text">Artificial Intelligence</span></h2>
+
+        <div class="overflow-hidden whitespace-nowrap">
+            <div class="inline-block my-20 animate-marquee whitespace-nowrap">
+            <!-- Ulangi logo/teks aplikasi AI di dalam div ini -->
+                <div class="inline-block mx-6 text-lg font-semibold text-white"><img src="./img/capcut.png" class="h-20" alt="Chatgpt"></div>
+                <div class="inline-block mx-6 text-lg font-semibold text-white"><img src="./img/ilustrator.png" class="h-20" alt="Chatgpt"></div>
+                <div class="inline-block mx-6 text-lg font-semibold text-white"><img src="./img/photoshop.png" class="h-20" alt="Chatgpt"></div>
+                <div class="inline-block mx-6 text-lg font-semibold text-white"><img src="./img/canva.png" class="h-20" alt="Chatgpt"></div>
+                <div class="inline-block mx-6 text-lg font-semibold text-white"><img src="./img/effect.png" class="h-20" alt="Chatgpt"></div>
+                <div class="inline-block mx-6 text-lg font-semibold text-white"><img src="./img/pycharm.png" class="h-20" alt="Chatgpt"></div>
+            </div>
+        </div>
+        
+        <div class="overflow-hidden whitespace-nowrap">
+            <div class="inline-block animate-reverse-marquee whitespace-nowrap">
+            <!-- Ulangi logo/teks aplikasi AI di dalam div ini -->
+                <div class="inline-block mx-6 text-lg font-semibold text-white"><img src="./img/php-storm.png" class="h-20" alt="Chatgpt"></div>
+                <div class="inline-block mx-6 text-lg font-semibold text-white"><img src="./img/jetbrains.png" class="h-20" alt="Chatgpt"></div>
+                <div class="inline-block mx-6 text-lg font-semibold text-white"><img src="./img/word.png" class="h-20" alt="Chatgpt"></div>
+                <div class="inline-block mx-6 text-lg font-semibold text-white"><img src="./img/vscode.png" class="h-20" alt="Chatgpt"></div>
+                <div class="inline-block mx-6 text-lg font-semibold text-white"><img src="./img/figma.png" class="h-20" alt="Chatgpt"></div>
+                <div class="inline-block mx-6 text-lg font-semibold text-white"><img src="./img/excel.png" class="h-20" alt="Chatgpt"></div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer  -->
+    <footer class="relative pt-16 text-sm bg-[#1F2937] border-none text-slate-300 px-2">
+        <!-- Gelombang Footer -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="absolute left-0 inline-block border-none lg:-top-42 md:-top-30 -top-12" viewBox="0 0 1440 200"><path fill="#1F2937" fill-opacity="1" d="M0,160L48,170.7C96,181,192,203,288,186.7C384,171,480,117,576,117.3C672,117,768,171,864,165.3C960,160,1056,96,1152,90.7C1248,85,1344,139,1392,165.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+        <div class="grid grid-cols-1 gap-12 px-4 pb-16 mx-auto max-w-7xl sm:px-6 lg:px-8 md:grid-cols-3">
+            <!-- Logo & Deskripsi -->
+            <div>
+                <div class="flex items-center mb-4 space-x-3">
+                    <span class="text-lg font-extrabold text-transparent bg-gradient-to-r from-emerald-600 to-sky-400 bg-clip-text">K.A.I.R.O</span>
+                </div>
+                <p class="leading-relaxed text-slate-400">
+                    Pusat pengetahuan Update macam-macam <span class="text-transparent bg-gradient-to-r from-emerald-600 to-sky-400 bg-clip-text">Artificial Intelligence</span> beserta fungsinya.
+                </p>
+                <div class="flex mt-4 space-x-4">
+                    <a target="_blank" href="https://api.whatsapp.com/send/?phone=6282281963857&text&type=phone_number&app_absent=0" class="hover:text-white"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a target="_blank" href="https://instagram.com/gusarya31" class="hover:text-white"><i class="fab fa-instagram"></i></a>
+                    <a target="_blank" href="https://x.com/guardana31" class="hover:text-white"><i class="fab fa-x-twitter"></i></a>
+                    <a target="_blank" href="https://www.linkedin.com/in/gustiaryapri/" class="hover:text-white"><i class="fab fa-linkedin-in"></i></a>
+                    <a target="_blank" href="https://github.com/gustiaryapriandana31" class="hover:text-white"><i class="fa-brands fa-github"></i></a>
+                    
+                </div>
+            </div>
+
+            <!-- Links -->
+            <div class="flex flex-col justify-around space-y-6 md:space-y-0 md:space-x-12 md:flex-row">
+                <div>
+                    <h4 class="mb-3 font-semibold text-white">Link Navigasi</h4>
+                    <ul class="space-y-2 text-slate-400">
+                        <li><a href="/" class="hover:text-white">Beranda</a></li>
+                        <li><a href="/view/update.html" class="hover:text-white">Update</a></li>
+                        <li><a href="/view/products.html" class="hover:text-white">Produk AI</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="mb-3 font-semibold text-white">AI Terpopuler</h4>
+                    <ul class="space-y-2 text-slate-400">
+                        <li><a href="/view/detail-product.html?slug=chatgpt" class="font-bold text-emerald-500">ChatGPT</a></li>
+                        <li><a href="/view/detail-product.html?slug=deepseek-ai" class="font-bold text-emerald-400">Deepseek AI</a></li>
+                        <li><a href="/view/detail-product.html?slug=claude-ai" class="font-bold text-emerald-400">Claude AI</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Subscription -->
+            <div>
+                <h4 class="mb-3 font-semibold text-white">Langganan</h4>
+                <p class="mb-4 text-slate-400">Nantikan setiap informasi AI terbaru dari kami</p>
+                <form class="flex flex-col gap-2 lg:gap-3 md:flex-row">
+                    <input type="email" placeholder="Emailmu"
+                            class="px-4 py-2 text-white placeholder-gray-400 border rounded-md md:w-1/2 lg:w-auto bg-slate-700 focus:outline-none focus:ring-2 focus:ring-green border-slate-600">
+                    <button type="submit"
+                            class="px-4 py-2 font-semibold text-white transition rounded-md bg-emerald-600 hover:bg-emerald-600">
+                        Langganan
+                    </button>
+                </form>
+            </div>
+
+        </div>
+
+        <div class="py-4 text-xs text-center border-t border-slate-700 text-slate-500">
+            &copy; 2025 <span class="font-semibold text-white">KAIRO</span>. All rights reserved.
+        </div>
+    </footer>
+</body>
+</html>
